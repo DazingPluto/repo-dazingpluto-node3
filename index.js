@@ -15,4 +15,24 @@ const http = require('http');
         res.end();
      })
      .listen(8000);
+     const axios = require ('axios');
+
+     const myModule = require ('./module');
+     
+     myModule.sei1025
+     console.log(myModule.sei1025);
+     
+     const arrayLength= myModule.sei1025.length
+     for(let i = 0; i < arrayLength; i++){
+     i = myModule.sei1025[i]
+     let username = i
+     axios.get('https://docs.github.com/rest/reference/users#'+username)
+      .then(function(response){
+         console.log(response.data);
+     })
+     .catch(err => {
+         console.log(err);
+      })
+     }
+     axios.get('https://docs.github.com/rest/reference/users#dazingpluto')
      
